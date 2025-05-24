@@ -28,7 +28,9 @@ INSTALLED_APPS = [
     'users'
 ]
 
-MIDDLEWARE = []
+MIDDLEWARE = [
+    'middlewares.jwt_auth.JWTAuthenticationMiddleware'
+]
 
 ROOT_URLCONF = 'ecomerce_django.urls'
 

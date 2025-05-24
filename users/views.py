@@ -7,6 +7,7 @@ from rest_framework.decorators import action
 
 class UserListCreateView(APIView):
     def get(self, request):
+        print("-----------------User", request.custom_user.__dict__)
         users = UserService.find_all()
         return Response(users)
 

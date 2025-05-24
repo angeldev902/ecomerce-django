@@ -6,6 +6,7 @@ from ..models import User
 from ..serializers import UserSerializer, LoginSerializer
 from django.contrib.auth.hashers import check_password
 from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 
 class UserService:
     @staticmethod
@@ -65,5 +66,13 @@ class UserService:
 
             token = jwt.encode(payload, settings.SECRET_KEY, algorithm="HS256")
             return { "token": token }
+        
+    @staticmethod
+    def get_user_from_token(payload):
+            try:
+                return User.objects.get(pk=payload['user_id'])
+            except ObjectDoesNotExist:
+                return None
+
 
         
