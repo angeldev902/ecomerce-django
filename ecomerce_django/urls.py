@@ -3,10 +3,11 @@ from django.urls import path, include
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("Hola, esta es la raíz del proyecto")
+    return HttpResponse("Django API Rest")
 
 
 urlpatterns = [
     path('', home),
-    path('api/users/', include('users.urls'))
+    path('api/users/', include('users.urls')),
+    path('api/brands/', include('brands.urls'))
 ]
