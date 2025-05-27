@@ -26,7 +26,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'rest_framework', # Dependencia necesaria para poder construir APIs Rest full
     'users',
-    'brands'
+    'brands',
+    'categories'
 ]
 
 MIDDLEWARE = [

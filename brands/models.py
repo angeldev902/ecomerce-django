@@ -13,4 +13,4 @@ class Brand(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table = 'brands'  # Este será el nombre exacto de la tabla en la base de datos
+        db_table = 'brands'
