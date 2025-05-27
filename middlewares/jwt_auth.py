@@ -6,7 +6,8 @@ from users.services.user_service import UserService
 EXEMPT_URLS = [
     '/api/users/auth/login/',
     '/api/users/auth/forgot/',
-    '/api/public/',  # Ejemplo
+    '/public/',
+    '/media/',
 ]
 
 class JWTAuthenticationMiddleware:

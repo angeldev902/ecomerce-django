@@ -82,8 +82,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-
 STATIC_URL = 'static/'
 
 # Default primary key field type
@@ -97,3 +95,11 @@ REST_FRAMEWORK = {
 }
 
 APPEND_SLASH = True
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # Ruta a la carpeta estática
+]
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
