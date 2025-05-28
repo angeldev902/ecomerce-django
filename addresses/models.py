@@ -4,7 +4,7 @@ from users.models import User
 class Address(models.Model):
 
     user = models.ForeignKey(
-        User,     # Como pongo que se relacionara con el modelo de User              
+        User,            
         on_delete=models.CASCADE,  
         null=False,               
         blank=False, 
