@@ -25,4 +25,4 @@ class BrandRetrieveUpdateDeleteView(APIView):
 
     def delete(self, request, pk):
         BrandsService.soft_delete(pk)
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response({ "message": "Deleted brand" }, status=status.HTTP_200_OK)

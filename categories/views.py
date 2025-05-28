@@ -25,4 +25,4 @@ class CategoryRetrieveUpdateDeleteView(APIView):
     
     def delete(self, request, pk):
         CategoriesService.soft_delete(pk)
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response({ "message": "Deleted category" }, status=status.HTTP_200_OK)
