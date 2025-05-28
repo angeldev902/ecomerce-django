@@ -16,13 +16,13 @@ class AddressListCreateView(APIView):
 
 class AddressRetrieveUpdateDeleteView(APIView):
     def get(self, request, pk):
-        address = AddressService.find_one(pk)
+        address = AddressService.find_one(pk, request.custom_user)
         return Response(address)
     
     def put(self, request, pk):
-        category = AddressService.update_address(pk, request.data)
+        category = AddressService.update_address(pk, request.data, request.custom_user)
         return Response({ "message": "Updated address" })
     
     def delete(self, request, pk):
-        AddressService.soft_delete(pk)
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        AddressService.soft_delete(pk, request.custom_user)
+        return Response({ "message": "Deleted address" }, status=status.HTTP_200_OK)

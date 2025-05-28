@@ -16,13 +16,13 @@ class AddressService:
         return serializer.data
 
     @staticmethod
-    def find_one(address_id):
-        address = get_object_or_404(Address, pk=address_id, deleted=False)
+    def find_one(address_id, custom_user):
+        address = get_object_or_404(Address, pk=address_id, deleted=False, user_id=custom_user.id)
         return AddressDetailSerializer(address).data
 
     @staticmethod
-    def update_address(address_id, data):
-        category = get_object_or_404(Address, pk=address_id, deleted=False)
+    def update_address(address_id, data, custom_user):
+        category = get_object_or_404(Address, pk=address_id, deleted=False, user_id=custom_user.id)
         serializer = AddressSerializer(category, data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -30,7 +30,7 @@ class AddressService:
     
 
     @staticmethod
-    def soft_delete(address_id):
-        address = get_object_or_404(Address, pk=address_id, deleted=False)
+    def soft_delete(address_id, custom_user):
+        address = get_object_or_404(Address, pk=address_id, deleted=False, user_id=custom_user.id)
         address.deleted = True
         address.save()
