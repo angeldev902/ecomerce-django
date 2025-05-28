@@ -11,7 +11,7 @@ class Address(models.Model):
         related_name='addresses' # user.addresses.all() to get all address in user object   
     )
 
-    street = models.CharField(null=False, blank=False, max_length=250)
+    street = models.CharField(null=False, blank=False, max_length=100)
 
     ext_number = models.CharField(null=False, blank=False, max_length=20)
 

@@ -27,5 +27,8 @@ class User(models.Model):
 
     updated_at = models.DateTimeField(auto_now=True)
 
+    @property
+    def display_name(self):
+        return f"{self.first_name} {self.last_name}".strip()
     class Meta:
         db_table = 'users'  # Este será el nombre exacto de la tabla en la base de datos
