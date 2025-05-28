@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'rest_framework', # Dependencia necesaria para poder construir APIs Rest full
     'users',
     'brands',
-    'categories'
+    'categories',
+    'addresses'
 ]
 
 MIDDLEWARE = [
