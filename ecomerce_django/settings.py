@@ -25,6 +25,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'rest_framework', # Dependencia necesaria para poder construir APIs Rest full
+    'corsheaders',
     'users',
     'brands',
     'categories',
@@ -35,6 +36,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'middlewares.jwt_auth.JWTAuthenticationMiddleware'
 ]
 
@@ -107,3 +109,17 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS").split(",")
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization',
+    'x-csrftoken',
+    'accept',
+    'origin',
+    'user-agent',
+    'x-requested-with',
+]
