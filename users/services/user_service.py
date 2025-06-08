@@ -65,7 +65,7 @@ class UserService:
             }
 
             token = jwt.encode(payload, settings.SECRET_KEY, algorithm="HS256")
-            return { "token": token }
+            return { "accessToken": token }
         
     @staticmethod
     def get_user_from_token(payload):

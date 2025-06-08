@@ -21,10 +21,10 @@ class ProductsService:
         serializer = ProductListSerializer(current_page, many=True)
 
         return {
-            'count': paginator.count,
+            'total': paginator.count,
             'total_pages': paginator.num_pages,
             'current_page': page,
-            'results': serializer.data
+            'data': serializer.data
         }
 
     @staticmethod
