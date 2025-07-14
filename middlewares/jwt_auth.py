@@ -5,6 +5,7 @@ from users.services.user_service import UserService
 
 EXEMPT_URLS = [
     '/api/users/auth/login/',
+    '/api/users/',
     '/api/users/auth/forgot/',
     '/public/',
     '/media/',
